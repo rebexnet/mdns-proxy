@@ -29,7 +29,7 @@ mdns.on('query', function (query) {
         if (typeof value != 'undefined') {
             if ((time - value.time) < ttl) {
                 if (value.response != null) {
-                    //console.log("cached response: ", key, value.response);
+                    //console.log("cached: ", key, value.response);
                     mdns.response(value.response);
                 } else {
                     //console.log("ignoring: ", key);
@@ -42,13 +42,13 @@ mdns.on('query', function (query) {
         dns.resolve(q.name, q.type, function (err, addresses) {
             if (err != null) {
                 // on error, don't respond but add entry to our cache
-                //console.log("error: ", key, err);
+                console.log("not found: ", key, err);
                 cache[key] = { time: time, response: null };
             } else {
                 // respond with the first address found
                 var address = addresses[0];
                 var response = [{ name: q.name, type: q.type, ttl: ttl, data: address }];
-                console.log("response: ", key, response);
+                console.log("resolved: ", key, response);
                 mdns.response(response);
 
                 // add entry to our cache
