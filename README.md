@@ -1,6 +1,6 @@
 ﻿# mdns-proxy
 
-A very simple *Multicast DNS to DNS proxy*. Resolves *A* and *AAAA* **mDNS** queries using the **DNS** subsystem.
+A very simple *Multicast DNS to DNS proxy* for Node.js. Resolves *A* and *AAAA* **mDNS** queries using the **DNS** subsystem.
 
 Makes `mydomain.local` names work with OS X Yosemite (10.10) and iOS 8.2 (or perhaps 8.1 or 8.0 - not tested yet) again (see https://discussions.apple.com/thread/6555023?start=75&tstart=0).
 
