@@ -10,7 +10,7 @@ var cache = {};
 var ttl = 1800;
 
 // maximum number cache entries
-var max_cache_entries = 5;
+var max_cache_entries = 10000;
 
 // handle Multicast DNS queries
 mdns.on('query', function (query) {
