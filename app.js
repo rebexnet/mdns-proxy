@@ -1,7 +1,10 @@
 ﻿var dns = require('dns');
 
+// treat first argument as (optional) interface IP or interface name
+var iface = process.argv[2];
+
 // set the interface option to a network interface name or IP to use a specific network interface
-var mdns = require('multicast-dns')({ interface: undefined });
+var mdns = require('multicast-dns')({ interface: iface });
 
 // query cache
 var cache = {};
@@ -75,4 +78,4 @@ mdns.on('query', function (query) {
     });
 });
 
-console.log("Listening for mDNS queries...");
+console.log("Listening for mDNS queries%s...", (iface !== undefined) ? " on " + iface : "");
