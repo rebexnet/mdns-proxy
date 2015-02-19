@@ -1,6 +1,6 @@
 {
   "name": "mdns-proxy",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "A very simple Multicast DNS to DNS proxy",
   "main": "app.js",
   "author": {
