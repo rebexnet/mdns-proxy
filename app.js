@@ -8,12 +8,22 @@ var cache = {};
 // hardcoded TTL value
 var ttl = 1800;
 
+// maximum number cache entries
+var max_cache_entries = 5;
+
 // handle Multicast DNS queries
 mdns.on('query', function (query) {
     var time = new Date().getTime() / 1000;
 
     //console.log('time:', time);
     //console.log('query:', query);
+
+    // clear the cache if it contains too many entries
+    if (Object.keys(cache).length > max_cache_entries) {
+        console.log('cache cleared');
+        cache = {};
+    }
+
     query.questions.forEach(function (q) {
         switch (q.type) {
             case "A":
