@@ -1,7 +1,8 @@
 ﻿var dns = require('dns');
-var mdns = require('multicast-dns')({ interface: undefined });
 
 // set the interface option to a network interface name or IP to use a specific network interface
+var mdns = require('multicast-dns')({ interface: undefined });
+
 // query cache
 var cache = {};
 
