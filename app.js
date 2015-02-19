@@ -47,12 +47,18 @@ mdns.on('query', function (query) {
             } else {
                 // respond with the first address found
                 var address = addresses[0];
-                var response = [{ name: q.name, type: q.type, ttl: ttl, data: address }];
-                console.log("resolved: ", key, response);
-                mdns.response(response);
+                if (typeof address === 'undefined') {
+                    // on empty record, just add entry to our cache
+                    console.log("empty record: ", key, err);
+                    cache[key] = { time: time, response: null };
+                } else {
+                    var response = [{ name: q.name, type: q.type, ttl: ttl, data: address }];
+                    console.log("resolved: ", key, response);
+                    mdns.response(response);
 
-                // add entry to our cache
-                cache[key] = { time: time, response: null };
+                    // add entry to our cache
+                    cache[key] = { time: time, response: null };
+                }
             }
         });
     });
