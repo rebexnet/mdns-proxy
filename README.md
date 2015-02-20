@@ -1,4 +1,5 @@
-﻿# mdns-proxy
+﻿mdns-proxy
+==========
 
 A very simple *Multicast DNS to DNS proxy* for Node.js. Resolves *A* and *AAAA* **mDNS** queries using the **DNS** subsystem.
 Thanks goes to [mafintosh](https://github.com/mafintosh) for his [multicast-dns](https://github.com/mafintosh/multicast-dns) package that made this possible.
