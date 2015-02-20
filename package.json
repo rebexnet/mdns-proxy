@@ -1,12 +1,18 @@
 {
   "name": "mdns-proxy",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "A very simple Multicast DNS to DNS proxy",
   "main": "app.js",
+  "bin": {
+    "mdns-proxy": "./bin/mdns-proxy"
+
+  }, 
   "author": {
     "name": "Lukas Pokorny",
-    "email": "lukas.pokorny@rebex.net"
+    "email": "lukas.pokorny@rebex.net",
+    "url": "http://lukas.pokorny.eu/" 
   },
+  "keywords": ["mdns", "multicast", "dns", "proxy"], 
   "dependencies": {
     "multicast-dns": "1.2.x"
   },
